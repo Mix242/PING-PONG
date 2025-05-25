@@ -1,5 +1,10 @@
 from pygame import *
 from random import *
+font.init()
+
+front1 = font.Font(None, 35)
+loser = front1.render("ПРОИГРАЛ ИГРОК 1",True, (180,0,0))
+loser2= front1.render("ПРОИГРАЛ ИГРОК 2",True, (180,0,0))
 win = display.set_mode((600,500))
 display.set_caption = ("ПИНГ ПОНГ")
 flag = True
@@ -63,6 +68,12 @@ while flag:
         if sprite.collide_rect(rocket_one,ball) or sprite.collide_rect(rocket_two,ball):
             speed_x *= -1.1
             speed_y *= -1.1
+    if ball.rect.x < 0:
+        win.blit(loser,(200,200))
+        finisg = True
+    if ball.rect.x > 600 :
+        win.blit(loser2,(200,200))
+        finisg = True
         
             
 
